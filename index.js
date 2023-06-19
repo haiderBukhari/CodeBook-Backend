@@ -1,15 +1,13 @@
 import express from "express";
 import jsonServer from "json-server";
 import auth from "json-server-auth";
+import cors from "cors";
 
 const server = express();
-server.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*')
-    res.header('Access-Control-Allow-Headers', '*')
-    next()
-})
 
-const router = jsonServer.router('./Data/db.json');
+server.use(cors());
+
+const router = jsonServer.router('./data/db.json');
 server.use('/api', router);
 server.db = router.db
 
