@@ -9,7 +9,7 @@ server.use((req, res, next) => {
     next()
 })
 
-const router = jsonServer.router('./data/db.json');
+const router = jsonServer.router('./Data/db.json');
 server.use('/api', router);
 server.db = router.db
 
